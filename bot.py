@@ -6,9 +6,9 @@ class Bot(Client):
     def __init__(self):
         super().__init__(
             name="Auto Cap",
-            api_id=22448257,
-            api_hash=7f8e2def57731a61f07b264e13c130a1,
-            bot_token=7627086441:AAHJvydOWzyK7mKCpHusxoofoZsqy1295Ss,
+            api_id=API_ID,
+            api_hash=API_HASH,
+            bot_token=BOT_TOKEN,
             workers=200,
             plugins={"root": "body"},
             sleep_threshold=15,
@@ -17,7 +17,7 @@ class Bot(Client):
     async def start(self):
         await super().start()
         me = await self.get_me()
-        self.force_channel = Doraemon_tamil_links
+        self.force_channel = FORCE_SUB
         if FORCE_SUB:
             try:
                 link = await self.export_chat_invite_link(FORCE_SUB)
@@ -27,7 +27,7 @@ class Bot(Client):
                 print("Make Sure Bot admin in force sub channel")
                 self.force_channel = None
         print(f"{me.first_name} Iꜱ Sᴛᴀʀᴛᴇᴅ.....✨️")
-        await self.send_message(ADMIN, f"**{me.Sandy}  Iꜱ Sᴛᴀʀᴛᴇᴅ.....✨️**")
+        await self.send_message(ADMIN, f"**{me.first_name}  Iꜱ Sᴛᴀʀᴛᴇᴅ.....✨️**")
 
 
 Bot().run()
